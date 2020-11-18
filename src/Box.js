@@ -15,7 +15,7 @@ const Box = ({backgroundColor , height, width, removeBox, id}) => {
         <li id={id}>
             <div style={style} className="Box"></div>
             <form onSubmit={handleSubmit} style={{ "display": "inline-block" }}>
-                <button>X</button>
+                <button id={`remove-${id}`}>X</button>
             </form>
         </li>
     )

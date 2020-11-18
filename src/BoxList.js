@@ -5,12 +5,13 @@ import { v4 as uuid } from "uuid";
 import './BoxList.css'
 
 
-function BoxList () {
-    const [boxes, setBoxes] = useState([]);
+function BoxList (props) {
+    const [boxes, setBoxes] = useState(props.boxes);
 
     //remove an old box
     const removeBox = evt => {
         let oldBox = boxes.find(b => b.id === evt.target.parentNode.id)
+        evt.target.parentNode.remove();
         setBoxes(boxes => boxes.filter(b => b !== oldBox))
     }
     
@@ -37,5 +38,6 @@ function BoxList () {
     )
 }
 
+BoxList.defaultProps = { boxes: [] }
 
 export default BoxList;
