@@ -1,7 +1,6 @@
+//Boxlist Component Test
 import { render, fireEvent } from '@testing-library/react';
 import BoxList, {addBox} from './Boxlist.js'
-// import {v4 as uuid} from "uuid"
-// jest.mock('uuid')
 
 it("renders without crashing", function() {
     render(<BoxList />)
