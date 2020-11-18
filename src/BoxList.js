@@ -6,13 +6,19 @@ import './BoxList.css'
 
 
 function BoxList () {
-    const [boxes, setBoxes] = useState([{"bgColor": 'blue', "height": "30px", "width": "40px"}]);
+    const [boxes, setBoxes] = useState([]);
 
+    //remove an old box
+    const removeBox = evt => {
+        let oldBox = boxes.find(b => b.id === evt.target.parentNode.id)
+        setBoxes(boxes => boxes.filter(b => b !== oldBox))
+    }
+    
     const renderBoxes = () => {
         return (
-            <div className="Box-container">
-                {boxes.map(box => (<Box height={box.height} width={box.width} backgroundColor={box.bgColor} />))}
-            </div>
+            <ul className="Box-container">
+                {boxes.map(box => (<Box key={box.id} id={box.id} height={`${box.height}px`} width={`${box.width}px`} backgroundColor={box.bgColor} removeBox={removeBox}/>))}
+            </ul>
         );
     };
     
