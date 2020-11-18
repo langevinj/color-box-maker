@@ -1,3 +1,4 @@
+
 import React from 'react'
 import './Box.css'
 
@@ -17,7 +18,6 @@ const Box = ({backgroundColor , height, width, removeBox, id}) => {
                 <button>X</button>
             </form>
         </li>
-        
     )
 }
 
